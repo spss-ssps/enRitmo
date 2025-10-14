@@ -1,29 +1,53 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #000000;
-    height: 300vh;
-    /* Make page scrollable */
+    background-color: #000;
+    height: 500vh;
+    overflow-x: hidden;
+    font-family: sans-serif;
 }
 
 .personas {
     position: fixed;
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    width: auto;
-    height: auto;
-    max-height: 100vh;
-    z-index: 1;
-    mix-blend-mode: exclusion;
+    transform: translate(-50%, -50%);
+    max-height: 80vh;
+    z-index: 2;
     mix-blend-mode: difference;
-    opacity: 0.8;
-    transition: left 0.1s ease-out;
+    transition: all 0.1s ease-out;
 }
 
-.madre {
+#memory {
+    font-size: 1em;
+    font-family: "DM Mono", monospace;
+    letter-spacing: 10px;
+    position: fixed;
+    color: #fff;
     left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    text-align: center;
+    transition: font-style 0.5s ease-out;
+    transition: letter-spacing 0.5s ease-out;
+
+    z-index: 10;
 }
 
-.sho {
+#memory:hover {
+    font-style: italic;
+    letter-spacing: -0.1em;
+}
+
+.trace {
+    position: fixed;
     left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 80vh;
+    opacity: 0.05;
+    mix-blend-mode: difference;
+    z-index: 0;
+    pointer-events: none;
 }
