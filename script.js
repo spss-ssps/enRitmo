@@ -30,7 +30,7 @@ window.addEventListener("scroll", () => {
         madre.style.opacity = 1;
         sho.style.opacity = 0;
         setVisibility(memory, false);
-    } else if (scrollProgress < 0.3) {
+    } else if (scrollProgress < 0.4) {
         madre.style.opacity = 1 - (scrollProgress - 0.2) * 10; // faster fade
         sho.style.opacity = (scrollProgress - 0.2) * 10;
         setVisibility(memory, false);
@@ -38,7 +38,7 @@ window.addEventListener("scroll", () => {
         madre.style.opacity = 0;
         sho.style.opacity = 0;
         // Memory visible for shorter duration
-        setVisibility(memory, scrollProgress < 0.35);
+        setVisibility(memory, scrollProgress < 0.45);
     }
 
     // --- Gallery Appearance & Audio Control ---
