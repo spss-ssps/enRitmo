@@ -1,12 +1,19 @@
+/* --- General Styles --- */
 body {
     margin: 0;
     padding: 0;
     background-color: #000;
-    height: 500vh;
     overflow-x: hidden;
-    font-family: sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+/* --- Scroll spacer to make content scrollable --- */
+#spacer {
+    height: 300vh;
+    /* double the scroll space */
+}
+
+/* --- Fixed dancing GIFs --- */
 .personas {
     position: fixed;
     left: 50%;
@@ -15,13 +22,13 @@ body {
     max-height: 80vh;
     z-index: 2;
     mix-blend-mode: difference;
-    transition: all 0.1s ease-out;
+    opacity: 0;
 }
 
+/* --- Centered title --- */
 #memory {
-    font-size: 1em;
-    font-family: "DM Mono", monospace;
-    letter-spacing: 10px;
+    font-size: 1.5rem;
+    letter-spacing: 0px;
     position: fixed;
     color: #fff;
     left: 50%;
@@ -29,25 +36,116 @@ body {
     transform: translate(-50%, -50%);
     opacity: 0;
     text-align: center;
-    transition: font-style 0.5s ease-out;
-    transition: letter-spacing 0.5s ease-out;
+    z-index: 9;
+    transition: all 0.3s ease;
+}
 
-    z-index: 10;
+#memory span.wave {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+#memory:hover span.wave {
+    animation: wave 0.6s ease-in-out infinite;
+    color: #4a4c94;
+    font-style: italic;
+    font-size: 3rem;
+}
+
+#memory:hover span.wave:nth-child(2) {
+    animation-delay: 0s;
+}
+
+#memory:hover span.wave:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+#memory:hover span.wave:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+#memory:hover span.wave:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+#memory:hover span.wave:nth-child(6) {
+    animation-delay: 0.4s;
+}
+
+#memory:hover span.wave:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+#memory:hover span.wave:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 #memory:hover {
-    font-style: italic;
-    letter-spacing: -0.1em;
+    letter-spacing: 10px;
 }
 
-.trace {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-height: 80vh;
-    opacity: 0.05;
-    mix-blend-mode: difference;
-    z-index: 0;
-    pointer-events: none;
+/* --- Gallery --- */
+.gallery {
+    width: 95vw;
+    margin: 30vh auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    opacity: 0;
+    z-index: 10;
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    transition: opacity 0.8s ease;
+}
+
+
+.visible {
+    opacity: 1 !important;
+    transition: opacity 0.8s ease;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* --- Captions under images --- */
+.caption {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #fff;
+    opacity: 0;
+    /* hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+    opacity: 1;
+    /* show caption on hover */
 }
