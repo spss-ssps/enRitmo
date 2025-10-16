@@ -27,7 +27,7 @@ body {
 
 /* --- Centered title --- */
 #memory {
-    font-size: 1.5rem;
+    font-size: 3rem;
     letter-spacing: 0px;
     position: fixed;
     color: #fff;
@@ -104,10 +104,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
     opacity: 0;
-    z-index: 10;
-    backdrop-filter: blur(2px);
-    border-radius: 15px;
     transition: opacity 0.8s ease;
+    z-index: 10;
 }
 
 
