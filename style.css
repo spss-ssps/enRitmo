@@ -20,6 +20,9 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     max-height: 80vh;
+    max-width: 90vw;
+    width: auto;
+    height: auto;
     z-index: 2;
     mix-blend-mode: difference;
     opacity: 0;
@@ -38,6 +41,8 @@ body {
     text-align: center;
     z-index: 9;
     transition: all 0.3s ease;
+    padding: 0 20px;
+    max-width: 90vw;
 }
 
 #memory span.wave {
@@ -141,9 +146,131 @@ body {
     opacity: 0;
     /* hidden by default */
     transition: opacity 0.3s ease;
+    padding: 0 10px;
+    text-align: center;
+    line-height: 1.5;
 }
 
 .gallery-item:hover .caption {
     opacity: 1;
     /* show caption on hover */
+}
+
+/* --- Responsive Design --- */
+
+/* Tablet and smaller screens */
+@media screen and (max-width: 1024px) {
+    #memory {
+        font-size: 2.5rem;
+    }
+
+    #memory:hover {
+        letter-spacing: 5px;
+    }
+
+    #memory:hover span.wave {
+        font-size: 2.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+        width: 90vw;
+    }
+
+    .caption {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile screens */
+@media screen and (max-width: 768px) {
+    #memory {
+        font-size: 2rem;
+    }
+
+    #memory:hover {
+        letter-spacing: 3px;
+    }
+
+    #memory:hover span.wave {
+        font-size: 2rem;
+    }
+
+    .personas {
+        max-height: 70vh;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 90vw;
+        margin: 20vh auto 0;
+    }
+
+    .caption {
+        font-size: 0.9rem;
+        opacity: 1;
+        /* Always show captions on mobile since hover doesn't work well */
+    }
+
+    #spacer {
+        height: 250vh;
+    }
+}
+
+/* Small mobile screens */
+@media screen and (max-width: 480px) {
+    #memory {
+        font-size: 1.5rem;
+        padding: 0 10px;
+    }
+
+    #memory:hover {
+        letter-spacing: 2px;
+    }
+
+    #memory:hover span.wave {
+        font-size: 1.5rem;
+    }
+
+    .personas {
+        max-height: 60vh;
+    }
+
+    .gallery {
+        width: 95vw;
+        gap: 15px;
+    }
+
+    .caption {
+        font-size: 0.85rem;
+    }
+
+    @keyframes wave {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 360px) {
+    #memory {
+        font-size: 1.2rem;
+    }
+
+    #memory:hover span.wave {
+        font-size: 1.2rem;
+    }
+
+    .caption {
+        font-size: 0.8rem;
+    }
 }
